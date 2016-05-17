@@ -11,6 +11,7 @@ Fetch and display Malaysia's Prayer Time dynamically using jQuery and Solat.io A
 ## Credits
 
 1. API provided by : http://Solat.IO
+2. jQuery Library : https://jquery.com/
 2. References :  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
 3. Sensei : Mohd Shahril (Thanks for convert time code and zone.json)
 
