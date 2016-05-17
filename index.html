@@ -1,0 +1,67 @@
+<!--
+Created By : Afif Zafri
+Date : 17/05/2016
+Contact Me : http://fb.me/afzafri
+API provided by : http://Solat.IO
+References :  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
+Original Project : https://github.com/afzafri/Waktu-Solat/
+Sensei : Mohd Shahril, thanks for zone.json :P
+-->
+<html>
+<head>
+<title>Waktu Solat jQuery</title>
+
+<!-- jQuery -->
+<script src="./js/jquery.js"></script>
+<!-- core script function -->
+<script src="./js/script.js"></script>
+
+<!--css untuk table -->
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+	padding: 10px;
+	 text-align: left;
+}
+</style>
+</head>
+<body>
+<center>
+<h1>Waktu Solat jQuery</h1>
+
+<!-- pilih negeri -->
+<select name='pilih_negeri' id='pilih_negeri'>
+<option value=''>Pilih Negeri</option>
+<option value="Johor">Johor</option>
+<option value="Kedah">Kedah</option>
+<option value="Kelantan">Kelantan</option>
+<option value="Kuala Lumpur">Kuala Lumpur</option>
+<option value="Labuan">Labuan</option>
+<option value="Melaka">Melaka</option>
+<option value="Negeri Sembilan">Negeri Sembilan</option>
+<option value="Pahang">Pahang</option>
+<option value="Perak">Perak</option>
+<option value="Perlis">Perlis</option>
+<option value="Pulau Pinang">Pulau Pinang</option>
+<option value="Putrajaya">Putrajaya</option>
+<option value="Sabah">Sabah</option>
+<option value="Sarawak">Sarawak</option>
+<option value="Selangor">Selangor</option>
+<option value="Terengganu">Terengganu</option>
+</select>
+
+<!-- pilih zone -->
+<select id='pilih_zone' name='pilih_zone'>
+</select>
+<br><br>
+
+<!-- append result here -->
+<div id="results"></div>
+
+</center>
+</body>
+</html>

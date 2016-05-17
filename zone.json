@@ -1,0 +1,92 @@
+{
+    "JOHOR": {
+        "JHR01": "Pulau Aur dan Pemanggil",
+        "JHR02": "Kota Tinggi, Mersing, Johor Bahru",
+        "JHR03": "Kluang dan Pontian",
+        "JHR04": "Batu Pahat, Muar, Segamat, Gemas"
+    },
+    "KEDAH": {
+        "KDH01": "Kota Setar, Kubang Pasu, Pokok Sena",
+        "KDH02": "Pendang, Kuala Muda, Yan",
+        "KDH03": "Padang Terap, Sik",
+        "KDH04": "Baling",
+        "KDH05": "Kulim, Bandar Bahru",
+        "KDH06": "Langkawi",
+        "KDH07": "Gunung Jerai"
+    },
+    "KELANTAN": {
+        "KTN01": "K.Bharu,Bachok,Pasir Puteh,Tumpat,Pasir Mas,Tnh. Merah,Machang,Kuala Krai,Mukim Chiku",
+        "KTN03": "Jeli, Gua Musang (Mukim Galas, Bertam)"
+    },
+    "MELAKA": {
+        "MLK01": "Bandar Melaka, Alor Gajah, Jasin, Masjid Tanah, Merlimau, Nyalas"
+    },
+    "NEGERI_SEMBILAN": {
+        "NGS01": "Jempol, Tampin",
+        "NGS02": "Port Dickson, Seremban, Kuala Pilah, Jelebu, Rembau"
+    },
+    "PAHANG": {
+        "PHG01": "Pulau Tioman",
+        "PHG02": "Kuantan, Pekan, Rompin, Muadzam Shah",
+        "PHG03": "Maran, Chenor, Temerloh, Bera, Jerantut",
+        "PHG04": "Bentong, Raub, Kuala Lipis",
+        "PHG05": "Genting Sempah, Janda Baik, Bukit Tinggi",
+        "PHG06": "Bukit Fraser, Genting Higlands, Cameron Higlands"
+    },
+    "PERLIS": {
+        "PLS01": "Kangar, Padang Besar, Arau"
+    },
+    "PULAU_PINANG": {
+        "PNG01": "Seluruh Negeri Pulau Pinang"
+    },
+    "PERAK": {
+        "PRK01": "Tapah,Slim River dan Tanjung Malim",
+        "PRK02": "Ipoh, Batu Gajah, Kampar, Sg. Siput dan Kuala Kangsar",
+        "PRK03": "Pengkalan Hulu, Grik dan Lenggong",
+        "PRK04": "Temengor dan Belum",
+        "PRK05": "Teluk Intan, Bagan Datoh, Kg.Gajah,Sri Iskandar, Beruas,Parit,Lumut,Setiawan dan Pulau Pangkor",
+        "PRK06": "Selama, Taiping, Bagan Serai dan Parit Buntar",
+        "PRK07": "Bukit Larut"
+    },
+    "SABAH": {
+        "SBH01": "Zon 1 - Sandakan, Bdr. Bkt. Garam, Semawang, Temanggong, Tambisan",
+        "SBH02": "Zon 2 - Pinangah, Terusan, Beluran, Kuamut, Telupit",
+        "SBH03": "Zon 3 - Lahad Datu, Kunak, Silabukan, Tungku, Sahabat, Semporna",
+        "SBH04": "Zon 4 - Tawau, Balong, Merotai, Kalabakan",
+        "SBH05": "Zon 5 - Kudat, Kota Marudu, Pitas, Pulau Banggi",
+        "SBH06": "Zon 6 - Gunung Kinabalu",
+        "SBH07": "Zon 7 - Papar, Ranau, Kota Belud, Tuaran, Penampang, Kota Kinabalu",
+        "SBH08": "Zon 8 - Pensiangan, Keningau, Tambunan, Nabawan",
+        "SBH09": "Zon 9 - Sipitang, Membakut, Beaufort, Kuala Penyu, Weston, Tenom, Long Pa Sia"
+    },
+    "SELANGOR": {
+        "SGR01": "Gombak,H.Selangor,Rawang, H.Langat, Sepang, Petaling, S.Alam",
+        "SGR02": "Sabak Bernam, Kuala Selangor, Klang, Kuala Langat"
+    },
+    "KUALA LUMPUR": {
+        "SGR03": "Kuala Lumpur"
+    },
+    "PUTRAJAYA": {
+        "SGR04": "Putrajaya"
+    },
+    "SARAWAK": {
+        "SWK01": "Zon 1 - Limbang, Sundar, Terusan, Lawas",
+        "SWK02": "Zon 2 - Niah, Belaga, Sibuti, Miri, Bekenu, Marudi",
+        "SWK03": "Zon 3 - Song, Belingan, Sebauh, Bintulu, Tatau, Kapit",
+        "SWK04": "Zon 4 - Igan, Kanowit, Sibu, Dalat, Oya",
+        "SWK05": "Zon 5 - Belawai, Matu, Daro, Sarikei, Julau, Bitangor, Rajang",
+        "SWK06": "Zon 6 - Kabong, Lingga, Sri Aman, Engkelili, Betong, Spaoh, Pusa, Saratok, Roban, Debak",
+        "SWK07": "Zon 7 - Samarahan, Simunjan, Serian, Sebuyau, Meludam",
+        "SWK08": "Zon 8 - Kuching, Bau, Lundu,Sematan",
+        "SWK09": "Zon 9 - Zon Khas"
+    },
+    "TERENGGANU": {
+        "TRG01": "Kuala Terengganu, Marang",
+        "TRG02": "Besut, Setiu",
+        "TRG03": "Hulu Terengganu",
+        "TRG04": "Kemaman Dungun"
+    },
+    "LABUAN": {
+        "WLY02": "Labuan"
+    }
+}
