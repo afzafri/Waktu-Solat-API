@@ -30,8 +30,10 @@ $(document).ready(function(){
 		var codeZon = $('#pilih_zone').val();
 		var apiURL = "http://solat.io/api/my/"+codeZon; //solat.io JSON API
 		
+		//fetch the data from JSON
 		$.getJSON( apiURL, function( data ) {
 		
+		//then use function convertTime to convert 24h to 12h time
 		var imsak = convertTime(data["waktu_imsak"]);
 		var subuh = convertTime(data["waktu_subuh"]);
 		var syuruk = convertTime(data["waktu_syuruk"]);
