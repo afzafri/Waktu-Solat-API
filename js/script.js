@@ -30,18 +30,30 @@ $(document).ready(function(){
 		var codeZon = $('#pilih_zone').val();
 		var apiURL = "http://solat.io/api/my/"+codeZon; //solat.io JSON API
 		
-		//fetch the data from JSON
 		$.getJSON( apiURL, function( data ) {
 		
-		//then use function convertTime to convert 24h to 12h time
-		var imsak = convertTime(data["waktu_imsak"]);
-		var subuh = convertTime(data["waktu_subuh"]);
-		var syuruk = convertTime(data["waktu_syuruk"]);
-		var zohor = convertTime(data["waktu_zohor"]);
-		var asar = convertTime(data["waktu_asar"]);
-		var maghrib = convertTime(data["waktu_maghrib"]);
-		var isyak = convertTime(data["waktu_isyak"]);
-		
+                //pulau pinang API use "." not ":". so convert time function will not work. need to replace to ":"
+                if(codeZon == "PNG01")
+                {
+                  var imsak = convertTime(data["waktu_imsak"].replace(".", ":"));
+		  var subuh = convertTime(data["waktu_subuh"].replace(".", ":"));
+		  var syuruk = convertTime(data["waktu_syuruk"].replace(".", ":"));
+		  var zohor = convertTime(data["waktu_zohor"].replace(".", ":"));
+		  var asar = convertTime(data["waktu_asar"].replace(".", ":"));
+		  var maghrib = convertTime(data["waktu_maghrib"].replace(".", ":"));
+		  var isyak = convertTime(data["waktu_isyak"].replace(".", ":"));
+                }
+               else
+               {
+                   var imsak = convertTime(data["waktu_imsak"]);
+		  var subuh = convertTime(data["waktu_subuh"]);
+		  var syuruk = convertTime(data["waktu_syuruk"]);
+		  var zohor = convertTime(data["waktu_zohor"]);
+		  var asar = convertTime(data["waktu_asar"]);
+		  var maghrib = convertTime(data["waktu_maghrib"]);
+		  var isyak = convertTime(data["waktu_isyak"]);
+               }
+
 		var results = "<table>" +
 		  "<tr><th>Imsak</th><td>" + imsak + "</td></tr>" +
 		  "<tr><th>Subuh</th><td>" + subuh + "</td></tr>" +
@@ -51,9 +63,10 @@ $(document).ready(function(){
 		  "<tr><th>Maghrib</th><td>" + maghrib + "</td></tr>" +
 		  "<tr><th>Isyak</th><td>" + isyak + "</td></tr>" +
 		  "</table>";
-		  
+
 		  $('#results').append(results).hide().fadeIn('slow'); //append the result with slow fade in animation
 		  
+
 		});
 	});
 	
@@ -75,3 +88,4 @@ $(document).ready(function(){
 	}
 	
 });
+				
