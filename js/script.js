@@ -31,28 +31,14 @@ $(document).ready(function(){
 		var apiURL = "http://solat.io/api/my/"+codeZon; //solat.io JSON API
 		
 		$.getJSON( apiURL, function( data ) {
-		
-                //pulau pinang API use "." not ":". so convert time function will not work. need to replace to ":"
-                if(codeZon == "PNG01")
-                {
-                  var imsak = convertTime(data["waktu_imsak"].replace(".", ":"));
-		  var subuh = convertTime(data["waktu_subuh"].replace(".", ":"));
-		  var syuruk = convertTime(data["waktu_syuruk"].replace(".", ":"));
-		  var zohor = convertTime(data["waktu_zohor"].replace(".", ":"));
-		  var asar = convertTime(data["waktu_asar"].replace(".", ":"));
-		  var maghrib = convertTime(data["waktu_maghrib"].replace(".", ":"));
-		  var isyak = convertTime(data["waktu_isyak"].replace(".", ":"));
-                }
-               else
-               {
-                   var imsak = convertTime(data["waktu_imsak"]);
-		  var subuh = convertTime(data["waktu_subuh"]);
-		  var syuruk = convertTime(data["waktu_syuruk"]);
-		  var zohor = convertTime(data["waktu_zohor"]);
-		  var asar = convertTime(data["waktu_asar"]);
-		  var maghrib = convertTime(data["waktu_maghrib"]);
-		  var isyak = convertTime(data["waktu_isyak"]);
-               }
+
+                var imsak = convertTime(data["waktu_imsak"]);
+		var subuh = convertTime(data["waktu_subuh"]);
+		var syuruk = convertTime(data["waktu_syuruk"]);
+		var zohor = convertTime(data["waktu_zohor"]);
+		var asar = convertTime(data["waktu_asar"]);
+		var maghrib = convertTime(data["waktu_maghrib"]);
+		var isyak = convertTime(data["waktu_isyak"]);
 
 		var results = "<table>" +
 		  "<tr><th>Imsak</th><td>" + imsak + "</td></tr>" +
@@ -75,17 +61,30 @@ $(document).ready(function(){
 	function convertTime (time){
 		var date = time;
 		var newtime = null;
-		date = date.replace(/[0-9]{1,2}(:[0-9]{2})/, function (time) {
-			var hms = time.split(':'),
+               
+                //check if the Time have "." as separator instead of ":", change regex accordingly
+                if(date.indexOf(".") > -1)
+                {
+                  var regexTime = /[0-9]{1,2}(.[0-9]{2})/;
+                  var spt = '.';
+                }
+                else
+                {
+                  var regexTime = /[0-9]{1,2}(:[0-9]{2})/;
+                  var spt = ':';
+                }
+
+		date = date.replace(regexTime, function (time) {
+			var hms = time.split(spt),
 				h = +hms[0],
 				suffix = (h < 12) ? 'am' : 'pm';
 			hms[0] = h % 12 || 12;       
 		 
 			newtime = hms.join(':') + " " + suffix;
-			
 		});
+
 		return newtime;
 	}
 	
 });
-				
+							
