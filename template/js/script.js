@@ -1,9 +1,12 @@
 $(document).ready(function(){
 	
+	$('.se-pre-con').hide(); // hide loading 
+
 	//event selector to detect if "pilih negeri" select box is change
 	//if change, fetch and append the list of zones from zone.json (thx abam shahril) for the chosen state
 	$(document).on("change","#pilih_negeri", function(){
 		$('#pilih_zone').empty();
+		$('#results').empty();
 		
 		//use jquery getJSON function to fetch json data
 		$.getJSON( "./zone.json", function( data ) {
@@ -16,9 +19,9 @@ $(document).ready(function(){
 		  $.each( data[negeri], function( key, val ) {
 			zons += "<option value='" + key + "'>" + val + "</option>";
 		  });
+		  var textpilih = "<option value=''>Pilih Zon</option>";
+		  $('#pilih_zone').append(textpilih+zons); //append list
 
-		  $('#pilih_zone').append(zons); //append list
-		  
 		});
 	});
 	
@@ -27,6 +30,7 @@ $(document).ready(function(){
 	//no longer using solat.io API as for 15/12/16 updates
 	$(document).on("change","#pilih_zone", function(){
 		
+		$('.se-pre-con').fadeIn('fast'); // show loading
 		$('#results').empty();
 		
 		var codeZon = $('#pilih_zone').val();
@@ -63,6 +67,7 @@ $(document).ready(function(){
 					'</div>';
 
 			  $('#results').append(panel1 + results + panel2).hide().fadeIn('slow'); //append the result with slow fade in animation
+			  $('.se-pre-con').fadeOut('fast'); // hide loading
 		});
 
 	});
