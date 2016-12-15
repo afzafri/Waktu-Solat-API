@@ -5,6 +5,7 @@ $(document).ready(function(){
 	//event selector to detect if "pilih negeri" select box is change
 	//if change, fetch and append the list of zones from zone.json (thx abam shahril) for the chosen state
 	$(document).on("change","#pilih_negeri", function(){
+		$('.se-pre-con').fadeIn('fast'); // show loading
 		$('#pilih_zone').empty();
 		$('#results').empty();
 		
@@ -21,6 +22,7 @@ $(document).ready(function(){
 		  });
 		  var textpilih = "<option value=''>Pilih Zon</option>";
 		  $('#pilih_zone').append(textpilih+zons); //append list
+		  $('.se-pre-con').fadeOut('fast'); // hide loading
 
 		});
 	});
