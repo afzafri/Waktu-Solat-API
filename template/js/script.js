@@ -16,8 +16,9 @@ $(document).ready(function(){
 		  $.each( data[negeri], function( key, val ) {
 			zons += "<option value='" + key + "'>" + val + "</option>";
 		  });
-		 var textPilih = "<option value=''>Pilih Zon</option>";
-		  $('#pilih_zone').append(textPilih+zons); //append list
+
+		  $('#pilih_zone').append(zons); //append list
+		  
 		});
 	});
 	
