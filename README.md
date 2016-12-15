@@ -18,8 +18,10 @@ Fetch and display Malaysia's Prayer Time dynamically using jQuery and my PHP API
 1. JAKIM e-Solat: http://www.e-solat.gov.my/web/waktusolat.php
 2. API Inspiration by Solat.IO: http://Solat.IO
 3. jQuery Library: https://jquery.com/
-4. References:  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
-5. Sensei: Mohd Shahril (Thanks for convert time code and zone.json)
+4. Bootstrap Library: http://getbootstrap.com/
+5. Loading Spinner svg: http://loading.io/
+6. References:  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
+7. Sensei: Mohd Shahril (Thanks for convert time code and zone.json)
 
 ## Installation
 
