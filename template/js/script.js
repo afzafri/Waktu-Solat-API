@@ -41,7 +41,8 @@ $(document).ready(function(){
 			var maghrib = convertTime(data["waktu_maghrib"]);
 			var isyak = convertTime(data["waktu_isyak"]);
 
-			var results = "<table>" +
+			var results = "<div class='table-responsive'>" +
+			  "<table class='table table-bordered table-hover'>" +
 			  "<tr><th>Imsak</th><td>" + imsak + "</td></tr>" +
 			  "<tr><th>Subuh</th><td>" + subuh + "</td></tr>" +
 			  "<tr><th>Syuruk</th><td>" + syuruk + "</td></tr>" +
@@ -49,7 +50,7 @@ $(document).ready(function(){
 			  "<tr><th>Asar</th><td>" + asar + "</td></tr>" +
 			  "<tr><th>Maghrib</th><td>" + maghrib + "</td></tr>" +
 			  "<tr><th>Isyak</th><td>" + isyak + "</td></tr>" +
-			  "</table>";
+			  "</table></div>";
 
 			var panel1 = '<div class="col-md-6 center-block">' +
 							'<div class="panel panel-danger">' +
