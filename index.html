@@ -8,60 +8,70 @@ Original PHP Project : https://github.com/afzafri/Waktu-Solat/
 Sensei : Mohd Shahril, thanks for zone.json :P
 -->
 <html>
-<head>
-<title>Waktu Solat jQuery</title>
+	<head>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<title>Waktu Solat</title>
+		<!-- jQuery -->
+		<script src="./template/js/jquery.js"></script>
+		<!-- core script function -->
+		<script src="./template/js/script.js"></script>
+		<!-- Bootstrap script -->
+		<script src="./template/js/bootstrap.min.js"></script>
+		<!-- Bootstrap css -->
+		<link rel="stylesheet" href="./template/css/bootstrap.min.css"/>
+		<!-- design css -->
+		<link rel="stylesheet" href="./template/css/design.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<center>
 
-<!-- jQuery -->
-<script src="./js/jquery.js"></script>
-<!-- core script function -->
-<script src="./js/script.js"></script>
+				<div class="row">
+					<h1>Waktu Solat</h1>
+					<hr>
+				</div>
 
-<!--css untuk table -->
-<style>
-table {
-    border-collapse: collapse;
-}
+				<div class="row">
+					<div class="col-md-6 center-block">
+						<div class="panel panel-success">
+				  			<div class="panel-heading"></div>
+				  			<div class="panel-body">
+				  				<!-- pilih negeri -->
+								<select name='pilih_negeri' id='pilih_negeri'>
+									<option value=''>Pilih Negeri</option>
+									<option value="Johor">Johor</option>
+									<option value="Kedah">Kedah</option>
+									<option value="Kelantan">Kelantan</option>
+									<option value="Kuala Lumpur">Kuala Lumpur</option>
+									<option value="Labuan">Labuan</option>
+									<option value="Melaka">Melaka</option>
+									<option value="Negeri_Sembilan">Negeri Sembilan</option>
+									<option value="Pahang">Pahang</option>
+									<option value="Perak">Perak</option>
+									<option value="Perlis">Perlis</option>
+									<option value="Pulau_Pinang">Pulau Pinang</option>
+									<option value="Putrajaya">Putrajaya</option>
+									<option value="Sabah">Sabah</option>
+									<option value="Sarawak">Sarawak</option>
+									<option value="Selangor">Selangor</option>
+									<option value="Terengganu">Terengganu</option>
+								</select>
 
-table, th, td {
-    border: 1px solid black;
-	padding: 10px;
-	 text-align: left;
-}
-</style>
-</head>
-<body>
-<center>
-<h1>Waktu Solat jQuery</h1>
-
-<!-- pilih negeri -->
-<select name='pilih_negeri' id='pilih_negeri'>
-<option value=''>Pilih Negeri</option>
-<option value="Johor">Johor</option>
-<option value="Kedah">Kedah</option>
-<option value="Kelantan">Kelantan</option>
-<option value="Kuala Lumpur">Kuala Lumpur</option>
-<option value="Labuan">Labuan</option>
-<option value="Melaka">Melaka</option>
-<option value="Negeri_Sembilan">Negeri Sembilan</option>
-<option value="Pahang">Pahang</option>
-<option value="Perak">Perak</option>
-<option value="Perlis">Perlis</option>
-<option value="Pulau_Pinang">Pulau Pinang</option>
-<option value="Putrajaya">Putrajaya</option>
-<option value="Sabah">Sabah</option>
-<option value="Sarawak">Sarawak</option>
-<option value="Selangor">Selangor</option>
-<option value="Terengganu">Terengganu</option>
-</select>
-
-<!-- pilih zone -->
-<select id='pilih_zone' name='pilih_zone'>
-</select>
-<br><br>
-
-<!-- append result here -->
-<div id="results"></div>
-
-</center>
-</body>
+								<!-- pilih zone -->
+								<select id='pilih_zone' name='pilih_zone'>
+								</select>
+				  			</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<!-- append result here -->
+					<div id="results"></div>
+				</div>
+				
+			</center>
+		</div>
+	</body>
 </html>

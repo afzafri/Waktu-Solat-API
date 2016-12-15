@@ -29,6 +29,7 @@ $(document).ready(function(){
 		$('#results').empty();
 		
 		var codeZon = $('#pilih_zone').val();
+		var apiURL = "./api.php?zon="+codeZon; //my JSON API
 		
 		$.getJSON( apiURL, function( data ) {
 
@@ -50,8 +51,18 @@ $(document).ready(function(){
 			  "<tr><th>Isyak</th><td>" + isyak + "</td></tr>" +
 			  "</table>";
 
-			  $('#results').append(results).hide().fadeIn('slow'); //append the result with slow fade in animation
+			var panel1 = '<div class="col-md-6 center-block">' +
+							'<div class="panel panel-danger">' +
+								'<div class="panel-heading"></div>' +
+								'<div class="panel-body">';
+							
+			var panel2 = '</div>' +
+						'</div>' +
+					'</div>';
+
+			  $('#results').append(panel1 + results + panel2).hide().fadeIn('slow'); //append the result with slow fade in animation
 		});
+
 	});
 	
 	//function to convert 24h to 12h time
