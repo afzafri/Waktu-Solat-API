@@ -22,37 +22,35 @@ $(document).ready(function(){
 	});
 	
 	//event selector to detect if "pilih zon" select box is change
-	//if change, fetch data for the selected state and zone from solat.io API
+	//if change, fetch data for the selected state and zone from my own waktu solat API
+	//no longer using solat.io API as for 15/12/16 updates
 	$(document).on("change","#pilih_zone", function(){
 		
 		$('#results').empty();
 		
 		var codeZon = $('#pilih_zone').val();
-		var apiURL = "http://solat.io/api/my/"+codeZon; //solat.io JSON API
 		
 		$.getJSON( apiURL, function( data ) {
 
-                var imsak = convertTime(data["waktu_imsak"]);
-		var subuh = convertTime(data["waktu_subuh"]);
-		var syuruk = convertTime(data["waktu_syuruk"]);
-		var zohor = convertTime(data["waktu_zohor"]);
-		var asar = convertTime(data["waktu_asar"]);
-		var maghrib = convertTime(data["waktu_maghrib"]);
-		var isyak = convertTime(data["waktu_isyak"]);
+	        var imsak = convertTime(data["waktu_imsak"]);
+			var subuh = convertTime(data["waktu_subuh"]);
+			var syuruk = convertTime(data["waktu_syuruk"]);
+			var zohor = convertTime(data["waktu_zohor"]);
+			var asar = convertTime(data["waktu_asar"]);
+			var maghrib = convertTime(data["waktu_maghrib"]);
+			var isyak = convertTime(data["waktu_isyak"]);
 
-		var results = "<table>" +
-		  "<tr><th>Imsak</th><td>" + imsak + "</td></tr>" +
-		  "<tr><th>Subuh</th><td>" + subuh + "</td></tr>" +
-		  "<tr><th>Syuruk</th><td>" + syuruk + "</td></tr>" +
-		  "<tr><th>Zohor</th><td>" + zohor + "</td></tr>" +
-		  "<tr><th>Asar</th><td>" + asar + "</td></tr>" +
-		  "<tr><th>Maghrib</th><td>" + maghrib + "</td></tr>" +
-		  "<tr><th>Isyak</th><td>" + isyak + "</td></tr>" +
-		  "</table>";
+			var results = "<table>" +
+			  "<tr><th>Imsak</th><td>" + imsak + "</td></tr>" +
+			  "<tr><th>Subuh</th><td>" + subuh + "</td></tr>" +
+			  "<tr><th>Syuruk</th><td>" + syuruk + "</td></tr>" +
+			  "<tr><th>Zohor</th><td>" + zohor + "</td></tr>" +
+			  "<tr><th>Asar</th><td>" + asar + "</td></tr>" +
+			  "<tr><th>Maghrib</th><td>" + maghrib + "</td></tr>" +
+			  "<tr><th>Isyak</th><td>" + isyak + "</td></tr>" +
+			  "</table>";
 
-		  $('#results').append(results).hide().fadeIn('slow'); //append the result with slow fade in animation
-		  
-
+			  $('#results').append(results).hide().fadeIn('slow'); //append the result with slow fade in animation
 		});
 	});
 	
