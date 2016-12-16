@@ -1,4 +1,4 @@
-# Waktu Solat jQuery and PHP API
+# Waktu Solat PHP API and Dynamic jQuery Webpage
 Fetch and display Malaysia's Prayer Time dynamically using jQuery and my PHP API
 - This version use HTML, Javascript and jQuery only in the main file.
 - PHP only used for my waktu Solat API, which will fetch XML directly from JAKIM e-Solat website, and return JSON data.
