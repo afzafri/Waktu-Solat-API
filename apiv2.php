@@ -24,6 +24,11 @@ if(isset($_GET['zon']) && isset($_GET['tahun']) && isset($_GET['bulan']))
     $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # receive http response status
     curl_close($ch);  # close curl
 
-    print_r($data);
+    # parse the data using regex
+    $patern = '#<table width=\"100%\" cellspacing=\"1\" cellpadding=\"3\" bgcolor=\"\#7C7C7C\"\>([\w\W]*?)</table>#'; 
+    preg_match_all($patern, $data, $parsed);  
+
+    print_r($parsed[0]);
 }
+
 ?>
