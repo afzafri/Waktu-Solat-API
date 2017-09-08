@@ -22,16 +22,6 @@ There are two version of the API, which are ```api.php``` and ```apiv2.php```
 	- As for 15/12/16, this project no longer using Solat.io API.
 	- This project will now using my own PHP API, ```api.php```
 
-## Credits
-
-1. JAKIM e-Solat: http://www.e-solat.gov.my/web/waktusolat.php
-2. API Inspiration by Solat.IO: http://Solat.IO
-3. jQuery Library: https://jquery.com/
-4. Bootstrap Library: http://getbootstrap.com/
-5. Loading Spinner svg: http://loading.io/
-6. References:  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
-7. Sensei: Mohd Shahril (Thanks for convert time code and zone.json)
-
 ## Installation
 
 Drop all files into your server  
@@ -44,12 +34,22 @@ Drop all files into your server
 	- where CODE stand for the zone code, ex: PLS01 for Perlis
 - API v2 Usage (```apiv2.php```):
 	1. Fetch data for a month
-		- example: http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5 , 
+		- example: ```http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5```
 		- where "PLS01" is the zone code, 2017 is the year, 5 is the month
 
 	2. Fetch data for a year
-		- example: http://localhost/apiv2.php?zon=PLS01&tahun=2017 , 
+		- example: ```http://localhost/apiv2.php?zon=PLS01&tahun=2017```
 		- where "PLS01" is the zone code, 2017 is the year. No need to include the month
+
+## Credits
+
+1. JAKIM e-Solat: http://www.e-solat.gov.my/web/waktusolat.php
+2. API Inspiration by Solat.IO: http://Solat.IO
+3. jQuery Library: https://jquery.com/
+4. Bootstrap Library: http://getbootstrap.com/
+5. Loading Spinner svg: http://loading.io/
+6. References:  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
+7. Sensei: Mohd Shahril (Thanks for convert time code and zone.json)
 
 ## License
 
