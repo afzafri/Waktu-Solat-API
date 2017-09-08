@@ -4,6 +4,15 @@
 	Waktu Solat API v2 created by Afif Zafri
 	XML data are fetch directly from JAKIM e-solat website
 	This new version will be able to fetch prayer time data for the whole Year or by each month for chosen Zone
+
+	Usage:
+	1. Fetch data for a month
+	example: http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5 , 
+	where "PLS01" is the zone code, 2017 is the year, 5 is the month
+
+	2. Fetch data for a year
+	example: http://localhost/apiv2.php?zon=PLS01&tahun=2017 , 
+	where "PLS01" is the zone code, 2017 is the year. No need to include the month
 */
 
 # function for fetching the webpage and parse data
