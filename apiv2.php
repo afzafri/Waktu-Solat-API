@@ -28,6 +28,9 @@ function fetchPage($kodzon,$tahun,$bulan)
     $trpatern = "#<tr([\w\W]*?)</tr>#";
     preg_match_all($trpatern, implode('',$parsed[0]), $trparsed); 
 
+    unset($trparsed[0][0]); # remove an array element because we don't need the 1st row (table heading) 
+    $trparsed[0] = array_values($trparsed[0]); # rearrange the array index
+
     $arrData['httpstatus'] = $httpstatus;
     $arrData['data'] = $trparsed[0];
 
