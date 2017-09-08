@@ -68,6 +68,16 @@ function fetchPage($kodzon,$tahun,$bulan)
     return $arrData; # return array data
 }
 
+# function for include project info details
+function projInfo($arrData)
+{
+	$arrData['info']['creator'] = "Afif Zafri (afzafri)";
+    $arrData['info']['project_page'] = "https://github.com/afzafri/Waktu-Solat-API/blob/master/apiv2.php";
+    $arrData['info']['date_updated'] = "08/09/2017";
+
+    return $arrData;
+}
+
 # if month is chosen, then only fetch data for the chosen month
 if(isset($_GET['zon']) && isset($_GET['tahun']) && isset($_GET['bulan']))
 {
@@ -78,7 +88,7 @@ if(isset($_GET['zon']) && isset($_GET['tahun']) && isset($_GET['bulan']))
 	$arrData = fetchPage($kodzon,$tahun,$bulan);
 
 	# print JSON data
-	echo json_encode($arrData);
+	echo json_encode(projInfo($arrData));
 }
 
 # if month does not chosen, fetch for all 12 months
@@ -95,7 +105,7 @@ if(isset($_GET['zon']) && isset($_GET['tahun']) && !isset($_GET['bulan']))
 	}
 
 	# print JSON data
-	echo json_encode($arrData);
+	echo json_encode(projInfo($arrData));
 }
 
 ?>
