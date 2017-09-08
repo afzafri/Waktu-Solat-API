@@ -62,15 +62,15 @@ function fetchPage($kodzon,$tahun,$bulan)
             $maghrib = strip_tags($tdparsed[0][7]);
             $isyak = strip_tags($tdparsed[0][8]);
 
-            $arrData['data'][$j]['date'] = $date." ".$tahun;
-            $arrData['data'][$j]['day'] = $day;
-            $arrData['data'][$j]['imsak'] = $imsak;
-            $arrData['data'][$j]['subuh'] = $subuh;
-            $arrData['data'][$j]['syuruk'] = $syuruk;
-            $arrData['data'][$j]['zohor'] = $zohor;
-            $arrData['data'][$j]['asar'] = $asar;
-            $arrData['data'][$j]['maghrib'] = $maghrib;
-            $arrData['data'][$j]['isyak'] = $isyak;
+            $arrData['data'][$j]['date'] = str_replace("\n",'',$date." ".$tahun);
+            $arrData['data'][$j]['day'] = str_replace("\n",'',$day);
+            $arrData['data'][$j]['imsak'] = str_replace("\n",'',$imsak);
+            $arrData['data'][$j]['subuh'] = str_replace("\n",'',$subuh);
+            $arrData['data'][$j]['syuruk'] = str_replace("\n",'',$syuruk);
+            $arrData['data'][$j]['zohor'] = str_replace("\n",'',$zohor);
+            $arrData['data'][$j]['asar'] = str_replace("\n",'',$asar);
+            $arrData['data'][$j]['maghrib'] = str_replace("\n",'',$maghrib);
+            $arrData['data'][$j]['isyak'] = str_replace("\n",'',$isyak);
         }
     }
 
