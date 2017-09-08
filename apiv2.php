@@ -65,7 +65,7 @@ function fetchPage($kodzon,$tahun,$bulan)
         }
     }
 
-    return json_encode($arrData);
+    return $arrData; # return array data
 }
 
 # if month is chosen, then only fetch data for the chosen month
@@ -78,7 +78,7 @@ if(isset($_GET['zon']) && isset($_GET['tahun']) && isset($_GET['bulan']))
 	$arrData = fetchPage($kodzon,$tahun,$bulan);
 
 	# print JSON data
-	echo $arrData;
+	echo json_encode($arrData);
 }
 
 # if month does not chosen, fetch for all 12 months
