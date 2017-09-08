@@ -42,12 +42,28 @@ function fetchPage($kodzon,$tahun,$bulan)
             $tdpatern = "#<td([\w\W]*?)</td>#";
             preg_match_all($tdpatern, $trparsed[0][$j], $tdparsed);
 
-            $arrData['data'][$j] = $tdparsed[0];
+            # store into variable, strip_tags is for removeing html tags
+            $date = strip_tags($tdparsed[0][0]);
+            $day = strip_tags($tdparsed[0][1]);
+            $imsak = strip_tags($tdparsed[0][2]);
+            $subuh = strip_tags($tdparsed[0][3]);
+            $syuruk = strip_tags($tdparsed[0][4]);
+            $zohor = strip_tags($tdparsed[0][5]);
+            $asar = strip_tags($tdparsed[0][6]);
+            $maghrib = strip_tags($tdparsed[0][7]);
+            $isyak = strip_tags($tdparsed[0][8]);
+
+            $arrData['data'][$j]['date'] = $date;
+            $arrData['data'][$j]['day'] = $day;
+            $arrData['data'][$j]['imsak'] = $imsak;
+            $arrData['data'][$j]['subuh'] = $subuh;
+            $arrData['data'][$j]['syuruk'] = $syuruk;
+            $arrData['data'][$j]['zohor'] = $zohor;
+            $arrData['data'][$j]['asar'] = $asar;
+            $arrData['data'][$j]['maghrib'] = $maghrib;
+            $arrData['data'][$j]['isyak'] = $isyak;
         }
     }
-
-    
-    #$arrData['data'] = $trparsed[0];
 
     return $arrData;
 }
@@ -82,7 +98,6 @@ if(isset($_GET['zon']) && isset($_GET['tahun']) && !isset($_GET['bulan']))
 }
 
 #### todo
-# parse each row of the table
 # return JSON
 
 ?>
