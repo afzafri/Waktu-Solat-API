@@ -53,7 +53,7 @@ function fetchPage($kodzon,$tahun,$bulan)
             $maghrib = strip_tags($tdparsed[0][7]);
             $isyak = strip_tags($tdparsed[0][8]);
 
-            $arrData['data'][$j]['date'] = $date;
+            $arrData['data'][$j]['date'] = $date." ".$tahun;
             $arrData['data'][$j]['day'] = $day;
             $arrData['data'][$j]['imsak'] = $imsak;
             $arrData['data'][$j]['subuh'] = $subuh;
