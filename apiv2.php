@@ -62,15 +62,16 @@ function fetchPage($kodzon,$tahun,$bulan)
             $maghrib = strip_tags($tdparsed[0][7]);
             $isyak = strip_tags($tdparsed[0][8]);
 
-            $arrData['data'][$j]['date'] = str_replace("\n",'',$date." ".$tahun);
-            $arrData['data'][$j]['day'] = str_replace("\n",'',$day);
-            $arrData['data'][$j]['imsak'] = str_replace("\n",'',$imsak);
-            $arrData['data'][$j]['subuh'] = str_replace("\n",'',$subuh);
-            $arrData['data'][$j]['syuruk'] = str_replace("\n",'',$syuruk);
-            $arrData['data'][$j]['zohor'] = str_replace("\n",'',$zohor);
-            $arrData['data'][$j]['asar'] = str_replace("\n",'',$asar);
-            $arrData['data'][$j]['maghrib'] = str_replace("\n",'',$maghrib);
-            $arrData['data'][$j]['isyak'] = str_replace("\n",'',$isyak);
+            # replace/remove new line tag and empty space, and store into array
+            $arrData['data'][$j]['date'] = str_replace(array("\n","        "),'',$date." ".$tahun);
+            $arrData['data'][$j]['day'] = str_replace(array("\n"," "),'',$day);
+            $arrData['data'][$j]['imsak'] = str_replace(array("\n"," "),'',$imsak);
+            $arrData['data'][$j]['subuh'] = str_replace(array("\n"," "),'',$subuh);
+            $arrData['data'][$j]['syuruk'] = str_replace(array("\n"," "),'',$syuruk);
+            $arrData['data'][$j]['zohor'] = str_replace(array("\n"," "),'',$zohor);
+            $arrData['data'][$j]['asar'] = str_replace(array("\n"," "),'',$asar);
+            $arrData['data'][$j]['maghrib'] = str_replace(array("\n"," "),'',$maghrib);
+            $arrData['data'][$j]['isyak'] = str_replace(array("\n"," "),'',$isyak);
         }
     }
 
