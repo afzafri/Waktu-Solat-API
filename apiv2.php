@@ -25,8 +25,11 @@ function fetchPage($kodzon,$tahun,$bulan)
     $patern = '#<table width=\"100%\" cellspacing=\"1\" cellpadding=\"3\" bgcolor=\"\#7C7C7C\"\>([\w\W]*?)</table>#'; 
     preg_match_all($patern, $data, $parsed);  
 
+    $trpatern = "#<tr([\w\W]*?)</tr>#";
+    preg_match_all($trpatern, implode('',$parsed[0]), $trparsed); 
+
     $arrData['httpstatus'] = $httpstatus;
-    $arrData['data'] = $parsed[0];
+    $arrData['data'] = $trparsed[0];
 
     return $arrData;
 }
@@ -41,7 +44,7 @@ if(isset($_GET['zon']) && isset($_GET['tahun']) && isset($_GET['bulan']))
 	$arrData = fetchPage($kodzon,$tahun,$bulan);
 
 	# display parsed html table
-	print_r($arrData);
+	print_r($arrData['data']);
 }
 
 # if month does not chosen, fetch for all 12 months
