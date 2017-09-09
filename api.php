@@ -44,5 +44,17 @@ if(isset($_GET['zon']))
 	# display data in json format
 	echo json_encode($arrwaktu);
 }
+else
+{
+	?>
+	<p>
+		Waktu Solat API created by Afif Zafri <br>
+		XML data are fetch directly from JAKIM e-solat website <br>
+		This API will parse the XML and return the data as JSON <br>
+		This API only need to receive "zon" parameter <br><br>
+		example: http://localhost/<font color="blue">api.php?zon=</font><font color="red">PLS01</font> , where "<font color="red">PLS01</font>" is the zone code <br>
+	</p>
+	<?php
+}
 
 ?>

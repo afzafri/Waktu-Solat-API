@@ -118,4 +118,25 @@ if(isset($_GET['zon']) && isset($_GET['tahun']) && !isset($_GET['bulan']))
 	echo json_encode(projInfo($arrData));
 }
 
+# if no parameters is supplied, show usage message
+if(!isset($_GET['zon']) && !isset($_GET['tahun']) && !isset($_GET['bulan']))
+{
+	?>
+		<p>
+			Waktu Solat API v2 created by Afif Zafri <br>
+			XML data are fetch directly from JAKIM e-solat website <br>
+			This new version will be able to fetch prayer time data for the whole Year or by each month for chosen Zone <br> <br>
+
+			Usage: <br>
+			1. Fetch data for a month <br>
+			example: http://localhost/<font color="blue">apiv2.php?zon=<font color="red">PLS01</font>&tahun=<font color="red">2017</font>&bulan=<font color="red">5</font></font> ,  <br>
+			where "<font color="red">PLS01</font>" is the zone code, <font color="red">2017</font> is the year, <font color="red">5</font> is the month <br> <br>
+
+			2. Fetch data for a year <br>
+			example: http://localhost/<font color="blue">apiv2.php?zon=<font color="red">PLS01</font>&tahun=<font color="red">2017</font></font> ,  <br>
+			where "<font color="red">PLS01</font>" is the zone code, <font color="red">2017</font> is the year. No need to include the month <br>
+		</p>
+	<?php
+}
+
 ?>
