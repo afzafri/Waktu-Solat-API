@@ -8,7 +8,7 @@
 	example: http://localhost/api.php?zon=PLS01 , where "PLS01" is the zone code
 */
 
-// ---------- Fetch States and Zones----------
+// ---------- Fetch States----------
 if(isset($_GET['getStates']))
 {
 	$jsonFile = file_get_contents("./zone.json");
@@ -22,6 +22,16 @@ if(isset($_GET['getStates']))
 
 	# display data in json format
 	echo json_encode($statesList);
+}
+// ---------- Fetch zones for a state ----------
+else if(isset($_GET['stateName']))
+{
+	$jsonFile = file_get_contents("./zone.json");
+	$jsonDat = json_decode($jsonFile, true);
+	$stateName = $_GET['stateName'];
+
+	# display data in json format
+	echo json_encode($jsonDat[$stateName]);
 }
 // ---------- Fetch Waktu Solat data by Zone ----------
 else if(isset($_GET['zon']))
