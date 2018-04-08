@@ -23,22 +23,20 @@ $(document).ready(function(){
 		$('.se-pre-con').fadeIn('fast'); // show loading
 		$('#pilih_zone').empty();
 		$('#results').empty();
-		
-		//use jquery getJSON function to fetch json data
-		$.getJSON( "./zone.json", function( data ) {
-		
-		//convert string to uppercase, needed so that can use to compare with the json file.
-		//malas nak tukar satu2 kat index.html xD
-		var negeri = $('#pilih_negeri').val().toUpperCase();
-		  
-		  var zons = "";
-		  $.each( data[negeri], function( key, val ) {
-			zons += "<option value='" + key + "'>" + val + "</option>";
-		  });
-		  var textpilih = "<option value=''>Pilih Zon</option>";
-		  $('#pilih_zone').append(textpilih+zons); //append list
-		  $('.se-pre-con').fadeOut('fast'); // hide loading
+		var negeri = $('#pilih_negeri').val();
 
+		//use jquery getJSON function to fetch json data
+		$.getJSON( "./api.php?stateName="+negeri, function( data ) {
+			$('.se-pre-con').fadeIn('fast'); // show loading
+			var zonelist = "";
+			
+ 			$.each( data, function( key, val ) {
+				zonelist += "<option value='" + key + "'>" + val + "</option>";
+		 	});
+
+			var textpilih = "<option value=''>Pilih Zon</option>";
+		  	$('#pilih_zone').append(textpilih+zonelist); //append list
+			$('.se-pre-con').fadeOut('fast'); // hide loading
 		});
 	});
 	
