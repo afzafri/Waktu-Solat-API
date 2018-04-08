@@ -8,10 +8,9 @@ $(document).ready(function(){
 		$.getJSON( "./api.php?getStates", function( data ) {
 			$('.se-pre-con').fadeIn('fast'); // show loading
 			var stateslist = "";
-			for(i=0;i<data.length;i++)
-			{
-				stateslist += "<option value='"+data[i]+"'>"+capitalizeWord(data[i])+"</option>";
-			}
+			$.each( data, function( key, val ) {
+				stateslist += "<option value='"+val+"'>"+capitalizeWord(val)+"</option>";
+		 	});
 			$('#pilih_negeri').append(stateslist);
 			$('.se-pre-con').fadeOut('fast'); // hide loading
 		});
