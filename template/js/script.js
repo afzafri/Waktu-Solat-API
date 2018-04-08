@@ -10,7 +10,7 @@ $(document).ready(function(){
 			var stateslist = "";
 			for(i=0;i<data.length;i++)
 			{
-				stateslist += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+				stateslist += "<option value='"+data[i]+"'>"+capitalizeWord(data[i])+"</option>";
 			}
 			$('#pilih_negeri').append(stateslist);
 			$('.se-pre-con').fadeOut('fast'); // hide loading
@@ -117,6 +117,17 @@ $(document).ready(function(){
 		});
 
 		return newtime;
+	}
+
+	//function to capitalize each words in a string
+	function capitalizeWord(str){
+		var words = str.split("_");
+		var newwords = "";
+		for(j=0;j<words.length;j++)
+		{
+			newwords += words[j][0] + words[j].substring(1).toLowerCase() + " ";
+		}
+		return newwords;
 	}
 	
 });
