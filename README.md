@@ -30,8 +30,12 @@ Drop all files into your server
 
 - Select Country and Zone from the drop down menu.
 - API v1 Usage (```api.php```):
-	- ```http://site.com/api.php?zon=CODE```
-	- where CODE stand for the zone code, ex: PLS01 for Perlis
+	- To get list of states
+		- ```http://localhost/api.php?getStates```
+	- To get list of zones of a state
+		- ```http://localhost/<font color="blue">api.php?stateName=NAME``` , where ```NAME``` is the state name, ex: PERLIS
+	- To get the prayer time of a zone
+		- ```http://localhost/api.php?zon=CODE``` , where ```CODE``` is the zone code, ex: PLS01 for Perlis
 - API v2 Usage (```apiv2.php```):
 	1. Fetch data for a month
 		- example: ```http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5```
