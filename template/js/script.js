@@ -2,6 +2,21 @@ $(document).ready(function(){
 	
 	$('.se-pre-con').hide(); // hide loading 
 
+	//onload, fetch list of states names and appends to UI
+	$(function(){
+		//use jquery getJSON function to fetch json data
+		$.getJSON( "./api.php?getStates", function( data ) {
+			$('.se-pre-con').fadeIn('fast'); // show loading
+			var stateslist = "";
+			for(i=0;i<data.length;i++)
+			{
+				stateslist += "<option value='"+data[i]+"'>"+data[i]+"</option>";
+			}
+			$('#pilih_negeri').append(stateslist);
+			$('.se-pre-con').fadeOut('fast'); // hide loading
+		});
+	});
+
 	//event selector to detect if "pilih negeri" select box is change
 	//if change, fetch and append the list of zones from zone.json (thx abam shahril) for the chosen state
 	$(document).on("change","#pilih_negeri", function(){
