@@ -21,7 +21,7 @@ if(isset($_GET['getStates']))
 	}
 
 	# display data in json format
-	echo json_encode($statesList);
+	echo json_encode($statesList, JSON_FORCE_OBJECT);
 }
 // ---------- Fetch zones for a state ----------
 else if(isset($_GET['stateName']))
