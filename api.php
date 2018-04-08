@@ -8,7 +8,15 @@
 	example: http://localhost/api.php?zon=PLS01 , where "PLS01" is the zone code
 */
 
-if(isset($_GET['zon']))
+// ---------- Fetch States and Zones----------
+if(isset($_GET['getStates']))
+{
+	$jsonFile = file_get_contents("./zone.json");
+	$jsonDat = json_decode($jsonFile);
+	print_r($jsonDat);
+}
+// ---------- Fetch Waktu Solat data by Zone ----------
+else if(isset($_GET['zon']))
 {
 	$kodzon = $_GET['zon']; # store get parameter in variable
 
