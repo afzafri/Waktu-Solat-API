@@ -12,8 +12,16 @@
 if(isset($_GET['getStates']))
 {
 	$jsonFile = file_get_contents("./zone.json");
-	$jsonDat = json_decode($jsonFile);
-	print_r($jsonDat);
+	$jsonDat = json_decode($jsonFile, true);
+	$statesList = array();
+
+	foreach ($jsonDat as $key => $value) 
+	{
+    	$statesList[] = $key;
+	}
+
+	# display data in json format
+	echo json_encode($statesList);
 }
 // ---------- Fetch Waktu Solat data by Zone ----------
 else if(isset($_GET['zon']))
