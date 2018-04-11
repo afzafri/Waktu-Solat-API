@@ -43,12 +43,14 @@ else if(isset($_GET['zon']))
 	# fetch xml file (from JAKIM website)
 	$ch = curl_init(); # initialize curl object
 	curl_setopt($ch, CURLOPT_URL, $xmlurl);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$fetchxml = curl_exec($ch); # execute curl, fetch webpage content (xml data)
-	curl_close($ch);  # close curl 
-
+	
 	# parse xml data into object
 	$data = simplexml_load_string($fetchxml); # parse xml data into object
+
+	curl_close($ch);  # close curl 
 	
 	# access xml data, get name of zone, trim object
 	$namazon = trim($data->channel[0]->link); 
