@@ -98,6 +98,7 @@ else
 	<?php
 }
 
+// Function to convert the time
 function convertTime($time) 
 {
 	// replace separator
