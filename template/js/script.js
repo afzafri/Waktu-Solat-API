@@ -52,13 +52,13 @@ $(document).ready(function(){
 		
 		$.getJSON( apiURL, function( data ) {
 
-	        var imsak = convertTime(data["waktu_imsak"]);
-			var subuh = convertTime(data["waktu_subuh"]);
-			var syuruk = convertTime(data["waktu_syuruk"]);
-			var zohor = convertTime(data["waktu_zohor"]);
-			var asar = convertTime(data["waktu_asar"]);
-			var maghrib = convertTime(data["waktu_maghrib"]);
-			var isyak = convertTime(data["waktu_isyak"]);
+	        var imsak = data["waktu_imsak"];
+			var subuh = data["waktu_subuh"];
+			var syuruk = data["waktu_syuruk"];
+			var zohor = data["waktu_zohor"];
+			var asar = data["waktu_asar"];
+			var maghrib = data["waktu_maghrib"];
+			var isyak = data["waktu_isyak"];
 
 			var results = "<div class='table-responsive'>" +
 			  "<table class='table table-bordered table-hover'>" +
@@ -85,36 +85,6 @@ $(document).ready(function(){
 		});
 
 	});
-	
-	//function to convert 24h to 12h time
-	//credit - TQ Shahril tolong cari hahaha
-	function convertTime (time){
-		var date = time;
-		var newtime = null;
-               
-                //check if the Time have "." as separator instead of ":", change regex accordingly
-                if(date.indexOf(".") > -1)
-                {
-                  var regexTime = /[0-9]{1,2}(.[0-9]{2})/;
-                  var spt = '.';
-                }
-                else
-                {
-                  var regexTime = /[0-9]{1,2}(:[0-9]{2})/;
-                  var spt = ':';
-                }
-
-		date = date.replace(regexTime, function (time) {
-			var hms = time.split(spt),
-				h = +hms[0],
-				suffix = (h < 12) ? 'am' : 'pm';
-			hms[0] = h % 12 || 12;       
-		 
-			newtime = hms.join(':') + " " + suffix;
-		});
-
-		return newtime;
-	}
 	
 });
 							
