@@ -65,13 +65,13 @@ function fetchPage($kodzon,$tahun,$bulan)
             # replace/remove new line tag and empty space, and store into array
             $arrData['data'][$j]['date'] = str_replace(array("\n","        "),'',$date." ".$tahun);
             $arrData['data'][$j]['day'] = str_replace(array("\n"," "),'',$day);
-            $arrData['data'][$j]['imsak'] = str_replace(array("\n"," "),'',$imsak);
-            $arrData['data'][$j]['subuh'] = str_replace(array("\n"," "),'',$subuh);
-            $arrData['data'][$j]['syuruk'] = str_replace(array("\n"," "),'',$syuruk);
-            $arrData['data'][$j]['zohor'] = str_replace(array("\n"," "),'',$zohor);
-            $arrData['data'][$j]['asar'] = str_replace(array("\n"," "),'',$asar);
-            $arrData['data'][$j]['maghrib'] = str_replace(array("\n"," "),'',$maghrib);
-            $arrData['data'][$j]['isyak'] = str_replace(array("\n"," "),'',$isyak);
+            $arrData['data'][$j]['imsak'] = convertTime(str_replace(array("\n"," "),'',$imsak));
+            $arrData['data'][$j]['subuh'] = convertTime(str_replace(array("\n"," "),'',$subuh));
+            $arrData['data'][$j]['syuruk'] = convertTime(str_replace(array("\n"," "),'',$syuruk));
+            $arrData['data'][$j]['zohor'] = convertTime(str_replace(array("\n"," "),'',$zohor));
+            $arrData['data'][$j]['asar'] = convertTime(str_replace(array("\n"," "),'',$asar));
+            $arrData['data'][$j]['maghrib'] = convertTime(str_replace(array("\n"," "),'',$maghrib));
+            $arrData['data'][$j]['isyak'] = convertTime(str_replace(array("\n"," "),'',$isyak));
         }
     }
 
@@ -137,6 +137,19 @@ if(!isset($_GET['zon']) && !isset($_GET['tahun']) && !isset($_GET['bulan']))
 			where "<font color="red">PLS01</font>" is the zone code, <font color="red">2017</font> is the year. No need to include the month <br>
 		</p>
 	<?php
+}
+
+// Function to convert the time
+function convertTime($time) 
+{
+    // replace separator
+    $time = str_replace(".", ":", $time);
+    // convert 24h to 12h
+    $newtime = date('h:i', strtotime($time));
+    // include a.m. or p.m. prefix
+    $newtime .= explode(':', $time)[0] <= 12 ? ' a.m.' : ' p.m.'; 
+
+    return $newtime;
 }
 
 ?>
