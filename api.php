@@ -67,7 +67,7 @@ else if(isset($_GET['zon']))
 		$waktu = trim($item->description);
 		
 		# store into associative array
-		$arrwaktu[$solat] = $waktu;
+		$arrwaktu[$solat] = convertTime($waktu);
 	}
 
 	# add kod_zon, nama_zon, and tarikh_masa to the array
@@ -96,6 +96,12 @@ else
 		http://localhost/<font color="blue">api.php?zon=</font><font color="red">PLS01</font> , where "<font color="red">PLS01</font>" is the zone code <br><br>
 	</p>
 	<?php
+}
+
+function convertTime($time) 
+{
+	$newtime = str_replace(".", ":", $time);
+	return $newtime;
 }
 
 ?>
