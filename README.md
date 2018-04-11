@@ -15,6 +15,8 @@ There are two version of the API, which are ```api.php``` and ```apiv2.php```
 4. Contact Me : http://fb.me/afzafri
 
 ## Update
+- 11/04/18
+	- Update API v1 and v2 to convert time from 24h to 12h format and include am pm prefix
 - 08/04/18
 	- Update API v1 to return states names and zones
 	- Update the demo interface to use this updated API
@@ -35,10 +37,13 @@ Drop all files into your server
 - API v1 Usage (```api.php```):
 	1. To get list of states
 		- ```http://localhost/api.php?getStates```
+
 	2. To get list of zones of a state
 		- ```http://localhost/api.php?stateName=NAME``` , where ```NAME``` is the state name, ex: PERLIS
+
 	3. To get the prayer time of a zone
 		- ```http://localhost/api.php?zon=CODE``` , where ```CODE``` is the zone code, ex: PLS01 for Perlis
+		
 - API v2 Usage (```apiv2.php```):
 	1. Fetch data for a month
 		- example: ```http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5```
