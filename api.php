@@ -41,8 +41,14 @@ else if(isset($_GET['zon']))
 	$xmlurl = "http://www2.e-solat.gov.my/xml/today/?zon=".$kodzon; # url of JAKIM eSolat XML data
 	
 	# fetch xml file (from JAKIM website)
+	$ch = curl_init(); # initialize curl object
+	curl_setopt($ch, CURLOPT_URL, $xmlurl);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$fetchxml = curl_exec($ch); # execute curl, fetch webpage content (xml data)
+	curl_close($ch);  # close curl 
+
 	# parse xml data into object
-	$data = simplexml_load_file($xmlurl); 
+	$data = simplexml_load_string($fetchxml); # parse xml data into object
 	
 	# access xml data, get name of zone, trim object
 	$namazon = trim($data->channel[0]->link); 
