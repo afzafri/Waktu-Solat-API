@@ -100,7 +100,13 @@ else
 
 function convertTime($time) 
 {
-	$newtime = str_replace(".", ":", $time);
+	// replace separator
+	$time = str_replace(".", ":", $time);
+	// convert 24h to 12h
+	$newtime = date('h:i', strtotime($time));
+	// include a.m. or p.m. prefix
+    $newtime .= explode(':', $time)[0] <= 12 ? ' a.m.' : ' p.m.'; 
+
 	return $newtime;
 }
 
