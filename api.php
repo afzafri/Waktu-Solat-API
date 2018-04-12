@@ -4,8 +4,6 @@
 	Waktu Solat API created by Afif Zafri
 	XML data are fetch directly from JAKIM e-solat website
 	This API will parse the XML and return the data as JSON
-	This API only need to receive "zon" parameter
-	example: http://localhost/api.php?zon=PLS01 , where "PLS01" is the zone code
 */
 
 // ---------- Fetch States----------
@@ -15,7 +13,7 @@ if(isset($_GET['getStates']))
 	$jsonDat = json_decode($jsonFile, true);
 	$statesList = array();
 
-	foreach ($jsonDat as $key => $value) 
+	foreach ($jsonDat as $key => $value)
 	{
     	$statesList[] = $key;
 	}
@@ -39,33 +37,33 @@ else if(isset($_GET['zon']))
 	$kodzon = $_GET['zon']; # store get parameter in variable
 
 	$xmlurl = "http://www2.e-solat.gov.my/xml/today/?zon=".$kodzon; # url of JAKIM eSolat XML data
-	
+
 	# fetch xml file (from JAKIM website)
 	$ch = curl_init(); # initialize curl object
 	curl_setopt($ch, CURLOPT_URL, $xmlurl);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$fetchxml = curl_exec($ch); # execute curl, fetch webpage content (xml data)
-	
+
 	# parse xml data into object
 	$data = simplexml_load_string($fetchxml); # parse xml data into object
 
-	curl_close($ch);  # close curl 
-	
+	curl_close($ch);  # close curl
+
 	# access xml data, get name of zone, trim object
-	$namazon = trim($data->channel[0]->link); 
+	$namazon = trim($data->channel[0]->link);
 	$tarikhmasa = trim($data->channel[0]->children('dc',true)->date); # use children() to access tag with colon (:)
-	
+
 	# create associative array to store waktu solat
 	$arrwaktu = array();
 
 	# iterate through the "item" tag in the xml, access, and store into array
 	foreach($data->channel[0]->item as $item)
-	{	
+	{
 		# access data and trims object, to store as string
 		$solat = "waktu_" . strtolower(trim($item->title)); # append "waktu_" to the lowercase string. ex: "waktu_subuh"
 		$waktu = trim($item->description);
-		
+
 		# store into associative array
 		$arrwaktu[$solat] = convertTime($waktu);
 	}
@@ -99,14 +97,14 @@ else
 }
 
 // Function to convert the time
-function convertTime($time) 
+function convertTime($time)
 {
 	// replace separator
 	$time = str_replace(".", ":", $time);
 	// convert 24h to 12h
 	$newtime = date('h:i', strtotime($time));
 	// include a.m. or p.m. prefix
-    $newtime .= explode(':', $time)[0] <= 12 ? ' a.m.' : ' p.m.'; 
+    $newtime .= explode(':', $time)[0] <= 12 ? ' a.m.' : ' p.m.';
 
 	return $newtime;
 }
