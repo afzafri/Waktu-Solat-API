@@ -36,7 +36,7 @@ else if(isset($_GET['zon']))
 {
 	$kodzon = $_GET['zon']; # store get parameter in variable
 
-	$xmlurl = "http://www2.e-solat.gov.my/xml/today/?zon=".$kodzon; # url of JAKIM eSolat XML data
+	$xmlurl = "https://www.e-solat.gov.my/index.php?r=esolatApi/xmlfeed&zon=".$kodzon; # url of JAKIM eSolat XML data
 
 	# fetch xml file (from JAKIM website)
 	$ch = curl_init(); # initialize curl object
