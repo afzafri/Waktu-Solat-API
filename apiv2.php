@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
 	Waktu Solat API v2 created by Afif Zafri
@@ -7,73 +7,59 @@
 
 	Usage:
 	1. Fetch data for a month
-	example: http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5 , 
+	example: http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5 ,
 	where "PLS01" is the zone code, 2017 is the year, 5 is the month
 
 	2. Fetch data for a year
-	example: http://localhost/apiv2.php?zon=PLS01&tahun=2017 , 
+	example: http://localhost/apiv2.php?zon=PLS01&tahun=2017 ,
 	where "PLS01" is the zone code, 2017 is the year. No need to include the month
 */
 
 # function for fetching the webpage and parse data
 function fetchPage($kodzon,$tahun,$bulan)
 {
-	$url = "http://www.e-solat.gov.my/web/muatturun.php?zone=".$kodzon."&jenis=year&lang=en&year=".$tahun."&bulan=".$bulan;
-		
-	# use cURL to fetch webpage
+	$url = "https://www.e-solat.gov.my/index.php?r=esolatApi/takwimsolat&period=duration&zone=".$kodzon;
+
+		# data for POST request
+		$dates = getDurationDate($bulan, $tahun);
+    $postdata = http_build_query(
+        array(
+            'datestart' => $dates['start'],
+            'dateend' => $dates['end'],
+        )
+    );
+
+    # cURL also have more options and customizable
     $ch = curl_init(); # initialize curl object
     curl_setopt($ch, CURLOPT_URL, $url); # set url
+    curl_setopt($ch, CURLOPT_POST, 1); # set option for POST data
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata); # set post data array
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); # receive server response
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); # do not verify SSL
-    $data = curl_exec($ch); # execute curl, fetch webpage content
-    echo curl_error($ch);
+    $result = curl_exec($ch); # execute curl, fetch webpage content
     $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # receive http response status
     curl_close($ch);  # close curl
 
-    # parse the data using regex
-    $patern = '#<table width=\"100%\" cellspacing=\"1\" cellpadding=\"3\" bgcolor=\"\#7C7C7C\"\>([\w\W]*?)</table>#'; 
-    preg_match_all($patern, $data, $parsed);  
-
-    $trpatern = "#<tr([\w\W]*?)</tr>#";
-    preg_match_all($trpatern, implode('',$parsed[0]), $trparsed); 
-
-    unset($trparsed[0][0]); # remove an array element because we don't need the 1st row (table heading) 
-    $trparsed[0] = array_values($trparsed[0]); # rearrange the array index
-
     $arrData = array();
+		$arrData['data'] = array();
     $arrData['httpstatus'] = $httpstatus;
+		$waktusolat = json_decode($result, true);
 
-    if(count($trparsed[0]) > 0)
-    {
-        for($j=0;$j<count($trparsed[0]);$j++)
-        {
-            # parse the table by column <td>
-            $tdpatern = "#<td([\w\W]*?)</td>#";
-            preg_match_all($tdpatern, $trparsed[0][$j], $tdparsed);
-
-            # store into variable, strip_tags is for removeing html tags
-            $date = strip_tags($tdparsed[0][0]);
-            $day = strip_tags($tdparsed[0][1]);
-            $imsak = strip_tags($tdparsed[0][2]);
-            $subuh = strip_tags($tdparsed[0][3]);
-            $syuruk = strip_tags($tdparsed[0][4]);
-            $zohor = strip_tags($tdparsed[0][5]);
-            $asar = strip_tags($tdparsed[0][6]);
-            $maghrib = strip_tags($tdparsed[0][7]);
-            $isyak = strip_tags($tdparsed[0][8]);
-
-            # replace/remove new line tag and empty space, and store into array
-            $arrData['data'][$j]['date'] = str_replace(array("\n","        "),'',$date." ".$tahun);
-            $arrData['data'][$j]['day'] = str_replace(array("\n"," "),'',$day);
-            $arrData['data'][$j]['imsak'] = convertTime(str_replace(array("\n"," "),'',$imsak));
-            $arrData['data'][$j]['subuh'] = convertTime(str_replace(array("\n"," "),'',$subuh));
-            $arrData['data'][$j]['syuruk'] = convertTime(str_replace(array("\n"," "),'',$syuruk));
-            $arrData['data'][$j]['zohor'] = convertTime(str_replace(array("\n"," "),'',$zohor));
-            $arrData['data'][$j]['asar'] = convertTime(str_replace(array("\n"," "),'',$asar));
-            $arrData['data'][$j]['maghrib'] = convertTime(str_replace(array("\n"," "),'',$maghrib));
-            $arrData['data'][$j]['isyak'] = convertTime(str_replace(array("\n"," "),'',$isyak));
-        }
-    }
+		if(count($waktusolat['prayerTime']) > 0) {
+			foreach ($waktusolat['prayerTime'] as $waktu) {
+				$arrData['data'][] = array(
+					'hijri' => $waktu['hijri'],
+					'date' => date("Y-m-d", myStrtotime($waktu['date'])),
+					'day' => $waktu['day'],
+					'imsak' => convertTime($waktu['imsak']),
+					'subuh' => convertTime($waktu['fajr']),
+					'syuruk' => convertTime($waktu['syuruk']),
+					'zohor' => convertTime($waktu['dhuhr']),
+					'asar' => convertTime($waktu['asr']),
+					'maghrib' => convertTime($waktu['maghrib']),
+					'isyak' => convertTime($waktu['isha']),
+				);
+			}
+		}
 
     return $arrData; # return array data
 }
@@ -83,7 +69,7 @@ function projInfo($arrData)
 {
 	$arrData['info']['creator'] = "Afif Zafri (afzafri)";
     $arrData['info']['project_page'] = "https://github.com/afzafri/Waktu-Solat-API/blob/master/apiv2.php";
-    $arrData['info']['date_updated'] = "08/09/2017";
+    $arrData['info']['date_updated'] = "15/10/2019";
 
     return $arrData;
 }
@@ -139,15 +125,33 @@ if(!isset($_GET['zon']) && !isset($_GET['tahun']) && !isset($_GET['bulan']))
 	<?php
 }
 
+function myStrtotime($date_string)
+{
+	 $convertDate = array('jan'=>'jan','feb'=>'feb','mac'=>'march','apr'=>'apr','mei'=>'may','jun'=>'jun','jul'=>'jul','ogos'=>'aug','sep'=>'sep','okt'=>'oct','nov'=>'nov','dis'=> 'dec');
+	 return strtotime(strtr(strtolower($date_string), $convertDate));
+}
+
+function getDurationDate($month, $year)
+{
+	$month = str_pad($month,2,'0',STR_PAD_LEFT);
+	$startdate = $year.'-'.$month.'-'.'01';
+	$enddate = $year.'-'.$month.'-'.date("t", strtotime(date("F", mktime(0, 0, 0, $month, 10))));
+
+	return array(
+		'start' => $startdate,
+		'end' => $enddate
+	);
+}
+
 // Function to convert the time
-function convertTime($time) 
+function convertTime($time)
 {
     // replace separator
     $time = str_replace(".", ":", $time);
     // convert 24h to 12h
     $newtime = date('h:i', strtotime($time));
     // include a.m. or p.m. prefix
-    $newtime .= explode(':', $time)[0] <= 12 ? ' a.m.' : ' p.m.'; 
+    $newtime .= explode(':', $time)[0] <= 12 ? ' a.m.' : ' p.m.';
 
     return $newtime;
 }
