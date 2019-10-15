@@ -1,7 +1,7 @@
 # Waktu Solat PHP API
 There are two version of the API, which are ```api.php``` and ```apiv2.php```
 1. ```api.php``` will fetch and parse the daily Prayer Time XML data from JAKIM e-Solat website. This will only return prayer time for the current day.
-2. ```apiv2.php``` will fetch and parse prayer time for the chosen Zone for either a month, or for a whole year. This API scrape the HTML table data from JAKIM e-Solat website.
+2. ```apiv2.php``` will fetch and parse prayer time for the chosen Zone for either a month, or for a whole year. This API fetch JSON data from JAKIM e-Solat website.
 
 # Dynamic jQuery Webpage
 - ```index.html``` and ```./template/js/script.js```
@@ -15,6 +15,8 @@ There are two version of the API, which are ```api.php``` and ```apiv2.php```
 4. Contact Me : http://fb.me/afzafri
 
 ## Update
+- 15/10/19
+	- Fixed API v2 by fetching data using new endpoint. JAKIM's changed their Waktu Solat web page which resulting in the API v2 to break.
 - 11/04/18
 	- Update API v1 and v2 to convert time from 24h to 12h format and include am pm prefix
 - 08/04/18
