@@ -1,7 +1,8 @@
 # Waktu Solat PHP API
-There are two version of the API, which are ```api.php``` and ```apiv2.php```
+There are two version of the API, which are ```api.php``` and ```apiv2.php```, and also a states and zones list fetcher script.
 1. ```api.php``` will fetch and parse the daily Prayer Time XML data from JAKIM e-Solat website. This will only return prayer time for the current day.
 2. ```apiv2.php``` will fetch and parse prayer time for the chosen Zone for either a month, or for a whole year. This API fetch JSON data from JAKIM e-Solat website.
+3. ```zonefetcher.php``` will fetch and store the list of states and zones into the ```zone.json``` file. Always run this file first on fresh install, or every couple of months.
 
 # Dynamic jQuery Webpage
 - ```index.html``` and ```./template/js/script.js```
@@ -9,12 +10,14 @@ There are two version of the API, which are ```api.php``` and ```apiv2.php```
 - This version use HTML, Javascript and jQuery only in the main file.
 - Original PHP Project and using Solat.io API : https://github.com/afzafri/Waktu-Solat
 
-## Created By : 
-1. Afif Zafri 
+## Created By :
+1. Afif Zafri
 3. Date : 17/05/2016
 4. Contact Me : http://fb.me/afzafri
 
 ## Update
+- 06/12/19
+	- Updated ```zone.json```. JAKIM have restructured the States and Zones list. I also added new script ```zonefetcher.php``` to automatically fetch and update the states and zones list from JAKIM website.
 - 15/10/19
 	- Fixed API v2 by fetching data using new endpoint. JAKIM's changed their Waktu Solat web page which resulting in the API v2 to break.
 - 11/04/18
@@ -45,7 +48,7 @@ Drop all files into your server
 
 	3. To get the prayer time of a zone
 		- ```http://localhost/api.php?zon=CODE``` , where ```CODE``` is the zone code, ex: PLS01 for Perlis
-		
+
 - API v2 Usage (```apiv2.php```):
 	1. Fetch data for a month
 		- example: ```http://localhost/apiv2.php?zon=PLS01&tahun=2017&bulan=5```
@@ -54,6 +57,10 @@ Drop all files into your server
 	2. Fetch data for a year
 		- example: ```http://localhost/apiv2.php?zon=PLS01&tahun=2017```
 		- where "PLS01" is the zone code, 2017 is the year. No need to include the month
+
+- Zone Fetcher Usage (```zonefetcher.php```)
+  1. Run the script and it will automatically fetch and store the latest JSON into the ```zone.json``` file.
+		- ```http://localhost/zonefetcher.php```
 
 ## Credits
 
