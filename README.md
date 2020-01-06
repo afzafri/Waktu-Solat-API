@@ -1,6 +1,6 @@
 # Waktu Solat PHP API
 There are two version of the API, which are ```api.php``` and ```apiv2.php```, and also a states and zones list fetcher script.
-1. ```api.php``` will fetch and parse the daily Prayer Time XML data from JAKIM e-Solat website. This will only return prayer time for the current day.
+1. ```api.php``` will fetch and parse the daily Prayer Time JSON data from JAKIM e-Solat website. This will only return prayer time for the current day.
 2. ```apiv2.php``` will fetch and parse prayer time for the chosen Zone for either a month, or for a whole year. This API fetch JSON data from JAKIM e-Solat website.
 3. ```zonefetcher.php``` will fetch and store the list of states and zones into the ```zone.json``` file. Always run this file first on fresh install, or every couple of months.
 
@@ -18,6 +18,7 @@ There are two version of the API, which are ```api.php``` and ```apiv2.php```, a
 ## Update
 - 06/12/19
 	- Updated ```zone.json```. JAKIM have restructured the States and Zones list. I also added new script ```zonefetcher.php``` to automatically fetch and update the states and zones list from JAKIM website.
+	- Updated API v1 to fetch data from JAKIM JSON data instead of the old XML data. API v1 now also included the day name and hijri date.
 - 15/10/19
 	- Fixed API v2 by fetching data using new endpoint. JAKIM's changed their Waktu Solat web page which resulting in the API v2 to break.
 - 11/04/18
