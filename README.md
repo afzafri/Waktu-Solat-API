@@ -4,10 +4,17 @@ There are two version of the API, which are ```api.php``` and ```apiv2.php```, a
 2. ```apiv2.php``` will fetch and parse prayer time for the chosen Zone for either a month, or for a whole year. This API fetch JSON data from JAKIM e-Solat website.
 3. ```zonefetcher.php``` will fetch and store the list of states and zones into the ```zone.json``` file. Always run this file first on fresh install, or every couple of months.
 
-# Dynamic jQuery Webpage
-- ```index.html``` and ```./template/js/script.js```
-- Fetch and display Malaysia's Prayer Time dynamically using jQuery and my PHP API
-- This version use HTML, Javascript and jQuery only in the main file.
+## Examples
+
+### Basic Usage Examples
+- ```examples/basic-usage.php```
+- PHP script demonstrating how to use both API v1 and API v2 programmatically
+- Includes examples for fetching states, zones, daily prayer times, and monthly/yearly data
+  
+### Web Interface
+- ```examples/web/index.html``` and ```examples/web/template/js/script.js```
+- Modern web interface built with vanilla JavaScript (no jQuery) and Bootstrap 5
+- Fetch and display Malaysia's Prayer Time dynamically using Fetch API
 - Original PHP Project and using Solat.io API : https://github.com/afzafri/Waktu-Solat
 
 ## Created By :
@@ -16,6 +23,13 @@ There are two version of the API, which are ```api.php``` and ```apiv2.php```, a
 4. Contact Me : http://fb.me/afzafri
 
 ## Update
+- 29/12/25
+	- Refactored web interface to use modern vanilla JavaScript with Fetch API (removed jQuery dependency)
+	- Upgraded from Bootstrap 3 to Bootstrap 5
+	- Reorganized project structure: moved web interface to ```examples/web/``` directory
+	- Added ```examples/basic-usage.php``` with API usage examples
+	- Replaced grid layout with flexbox for better responsiveness
+	- Removed unused Glyphicons fonts
 - 06/12/19
 	- Updated ```zone.json```. JAKIM have restructured the States and Zones list. I also added new script ```zonefetcher.php``` to automatically fetch and update the states and zones list from JAKIM website.
 	- Updated API v1 to fetch data from JAKIM JSON data instead of the old XML data. API v1 now also included the day name and hijri date.
@@ -67,11 +81,10 @@ Drop all files into your server
 
 1. JAKIM e-Solat: http://www.e-solat.gov.my/web/waktusolat.php
 2. API Inspiration by Solat.IO: http://Solat.IO
-3. jQuery Library: https://jquery.com/
-4. Bootstrap Library: http://getbootstrap.com/
-5. Loading Spinner svg: http://loading.io/
-6. References:  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
-7. Sensei: Mohd Shahril (Thanks for convert time code and zone.json)
+3. Bootstrap 5: https://getbootstrap.com/
+4. Loading Spinner svg: http://loading.io/
+5. References:  http://ijat.my/e-solat-xmljsonp-api, http://stackoverflow.com/
+6. Sensei: Mohd Shahril (Thanks for convert time code and zone.json)
 
 ## License
 

@@ -18,6 +18,13 @@ body {
     background: url(../images/hourglass.svg) center no-repeat rgba(255,255,255,.6);
 }
 
-.center-block {
-	float: none !important
+/* Responsive width: 100% on mobile, 50% on desktop */
+.w-responsive {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.w-responsive {
+		width: 50%;
+	}
 }
