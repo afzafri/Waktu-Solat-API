@@ -1,9 +1,9 @@
 {
     "Johor": {
         "JHR01": "Pulau Aur dan Pulau Pemanggil ",
-        "JHR02": "Johor Bahru, Kota Tinggi, Mersing",
+        "JHR02": "Johor Bahru, Kota Tinggi, Mersing, Kulai",
         "JHR03": "Kluang, Pontian",
-        "JHR04": "Batu Pahat, Muar, Segamat, Gemas Johor"
+        "JHR04": "Batu Pahat, Muar, Segamat, Gemas Johor, Tangkak"
     },
     "Kedah": {
         "KDH01": "Kota Setar, Kubang Pasu, Pokok Sena (Daerah Kecil)",
@@ -16,22 +16,24 @@
     },
     "Kelantan": {
         "KTN01": "Bachok, Kota Bharu, Machang, Pasir Mas, Pasir Puteh, Tanah Merah, Tumpat, Kuala Krai, Mukim Chiku",
-        "KTN03": "Gua Musang (Daerah Galas Dan Bertam), Jeli"
+        "KTN02": "Gua Musang (Daerah Galas Dan Bertam), Jeli, Jajahan Kecil Lojing"
     },
     "Melaka": {
         "MLK01": "SELURUH NEGERI MELAKA"
     },
     "Negeri Sembilan": {
         "NGS01": "Tampin, Jempol",
-        "NGS02": "Jelebu, Kuala Pilah, Port Dickson, Rembau, Seremban"
+        "NGS02": "Jelebu, Kuala Pilah, Rembau",
+        "NGS03": "Port Dickson, Seremban"
     },
     "Pahang": {
         "PHG01": "Pulau Tioman",
-        "PHG02": "Kuantan, Pekan, Rompin, Muadzam Shah",
+        "PHG02": "Kuantan, Pekan, Muadzam Shah",
         "PHG03": "Jerantut, Temerloh, Maran, Bera, Chenor, Jengka",
         "PHG04": "Bentong, Lipis, Raub",
         "PHG05": "Genting Sempah, Janda Baik, Bukit Tinggi",
-        "PHG06": "Cameron Highlands, Genting Higlands, Bukit Fraser"
+        "PHG06": "Cameron Highlands, Genting Higlands, Bukit Fraser",
+        "PHG07": "Zon Khas Daerah Rompin, (Mukim Rompin, Mukim Endau, Mukim Pontian)"
     },
     "Perlis": {
         "PLS01": "Kangar, Padang Besar, Arau"
@@ -41,7 +43,7 @@
     },
     "Perak": {
         "PRK01": "Tapah, Slim River, Tanjung Malim",
-        "PRK02": "Kuala Kangsar, Sg. Siput (Daerah Kecil), Ipoh, Batu Gajah, Kampar",
+        "PRK02": "Kuala Kangsar, Sg. Siput , Ipoh, Batu Gajah, Kampar",
         "PRK03": "Lenggong, Pengkalan Hulu, Grik",
         "PRK04": "Temengor, Belum",
         "PRK05": "Kg Gajah, Teluk Intan, Bagan Datuk, Seri Iskandar, Beruas, Parit, Lumut, Sitiawan, Pulau Pangkor",
@@ -57,7 +59,7 @@
         "SBH06": "Gunung Kinabalu",
         "SBH07": "Kota Kinabalu, Ranau, Kota Belud, Tuaran, Penampang, Papar, Putatan, Bahagian Pantai Barat",
         "SBH08": "Pensiangan, Keningau, Tambunan, Nabawan, Bahagian Pendalaman (Atas)",
-        "SBH09": "Beaufort, Kuala Penyu, Sipitang, Tenom, Long Pa Sia, Membakut, Weston, Bahagian Pendalaman (Bawah)"
+        "SBH09": "Beaufort, Kuala Penyu, Sipitang, Tenom, Long Pasia, Membakut, Weston, Bahagian Pendalaman (Bawah)"
     },
     "Selangor": {
         "SGR01": "Gombak, Petaling, Sepang, Hulu Langat, Hulu Selangor, S.Alam",
