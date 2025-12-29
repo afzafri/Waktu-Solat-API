@@ -13,8 +13,6 @@ Sensei : Mohd Shahril, thanks for zone.json :P
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<link rel="shortcut icon" href="./template/images/favicon.ico">
 		<title>Waktu Solat</title>
-		<!-- jQuery -->
-		<script src="./template/js/jquery.js"></script>
 		<!-- core script function -->
 		<script src="./template/js/script.js"></script>
 		<!-- Bootstrap script -->
@@ -26,45 +24,31 @@ Sensei : Mohd Shahril, thanks for zone.json :P
 	</head>
 	<body>
 		<div class="se-pre-con"></div> <!-- loading spinner -->
-		<div class="container">
-			<center>
+		<div class="container d-flex flex-column align-items-center mt-5">
 
-				<div class="row">
-					<h1><font color="white">Waktu Solat</font></h1>
-					<hr>
-				</div>
+			<h1 class="text-white">Waktu Solat</h1>
+			<hr class="w-100">
 
-				<div class="row">
-					<div class="col-md-6 center-block">
-						<div class="panel panel-success">
-				  			<div class="panel-heading"></div>
-				  			<div class="panel-body">
-				  				<!-- pilih negeri -->
-								<div class="form-group">
-									<select name='pilih_negeri' id='pilih_negeri' class="form-control">
-										<option value=''>Pilih Negeri</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<!-- pilih zone -->
-									<select id='pilih_zone' name='pilih_zone' class="form-control">
-										<option value=''>Pilih Zon</option>
-									</select>
-								</div>
-								
-
-								
-				  			</div>
-						</div>
+			<div class="card w-50">
+				<div class="card-body">
+					<!-- pilih negeri -->
+					<div class="mb-3">
+						<select name='pilih_negeri' id='pilih_negeri' class="form-select">
+							<option value=''>Pilih Negeri</option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<!-- pilih zone -->
+						<select id='pilih_zone' name='pilih_zone' class="form-select">
+							<option value=''>Pilih Zon</option>
+						</select>
 					</div>
 				</div>
-				
-				<div class="row">
-					<!-- append result here -->
-					<div id="results"></div>
-				</div>
-				
-			</center>
+			</div>
+
+			<!-- append result here -->
+			<div id="results" class="w-50 mt-2"></div>
+
 		</div>
 	</body>
 </html>
